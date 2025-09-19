@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demo Animaciones CSS</title>
+
+  <!-- Aquí enlazamos la hoja de estilos externa -->
+  <link rel="stylesheet" href="/Ej_animaciones/assets/estilos.css">
+</head>
+<body>
+  
+  <!-- Cabecera de la página -->
+  <header class="site-header">
+    <h1>Demo de Animaciones CSS</h1>
+    <p class="helper">
+     Animaciones sencillas para tu web
+    </p>
+  </header>
+
+  
+
+  <!-- =============================
+       1) Cambio de color cíclico
+       ============================= -->
+  <section class="section">
+    <h2>1) Cambio de color cíclico</h2>
+    <p class="helper">
+      Este bloque usa la clase <code>.animate</code> que aplica
+      una animación definida con <code>@keyframes color-change</code>.
+    </p>
+    <div class="block animate"></div>
+  </section>
+
+  <!-- =============================
+       2) Texto que crece al pasar el ratón
+       ============================= -->
+  <section class="section">
+    <h2>2) Texto que crece al pasar el ratón</h2>
+    <p class="helper">
+      Al pasar el ratón por encima, este párrafo se anima
+      gracias a <code>@keyframes bigger</code>.
+    </p>
+    <p class="grow">Pasa el ratón por encima de este texto 📈</p>
+  </section>
+
+  <!-- =============================
+       3) Movimiento horizontal ida y vuelta
+       ============================= -->
+  <section class="section">
+    <h2>3) Movimiento horizontal ida/vuelta</h2>
+    <p class="helper">El bloque se desplaza de izquierda a derecha y regresa.</p>
+    <div class="block move"></div>
+  </section>
+
+  <!-- =============================
+       4) Movimiento + desvanecimiento
+       ============================= -->
+  <section class="section">
+    <h2>4) Movimiento con desvanecimiento</h2>
+    <p class="helper">
+      El bloque se mueve y además se vuelve invisible
+      en un momento del recorrido.
+    </p>
+    <div class="block move2"></div>
+  </section>
+
+  <!-- =============================
+       5) Timing functions comparadas
+       ============================= -->
+  <section class="section">
+    <h2>5) Timing functions</h2>
+    <p class="helper">
+      Misma animación, pero con distintas curvas de velocidad:
+      <code>ease-in-out</code>, <code>ease-out</code>, <code>linear</code>.
+    </p>
+    <div class="circle move ease-in" title="ease-in-out"></div>
+    <div class="circle move ease-out" title="ease-out"></div>
+    <div class="circle move linear" title="linear"></div>
+  </section>
+
+  <!-- =============================
+       6) Combinación de animaciones
+       ============================= -->
+  <section class="section">
+    <h2>6) Combinación de clases</h2>
+    <p class="helper">Un círculo que se mueve y cambia de color al mismo tiempo.</p>
+    <div class="circle animate move ease-in"></div>
+  </section>
+
+  <!-- =============================
+       7) Sombras con box-shadow
+       ============================= -->
+  <section class="section">
+    <h2>7) Sombras (box-shadow)</h2>
+    <div class="grid-3">
+      <article class="card shadow-a">
+        <h3>Sombra desplazada (-10px, 10px)</h3>
+      </article>
+      <article class="card shadow-b">
+        <h3>Sombra desplazada (20px, 20px)</h3>
+      </article>
+      <article class="card shadow-c">
+        <h3>Sombra con desenfoque (2px)</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- =============================
+       8) Texto metálico con brillo
+       ============================= -->
+  <section class="metal-text-section">
+    <div class="metal-text-container">
+      <span class="metal-text">DESARROLLO WEB</span>
+    </div>
+  </section>
+
+  
+
+  <!-- =============================
+       10) Tarjetas que giran (flip-cards)
+       ============================= -->
+  <section class="flip-cards-section">
+  <div class="container">
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="front"><h3>Mis habilidades</h3></div>
+          <div class="back">
+            <ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="front"><h3>Otra tarjeta</h3></div>
+          <div class="back"><p>Contenido alternativo</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="callout">
+    <h3>¿Cómo implementar estas animaciones? 💃🕺</h3>
+    <p>
+      Todas las demos de esta página funcionan con <strong>animaciones nativas de CSS</strong>.
+      No necesitas JavaScript: basta con <em>poner la clase adecuada</em> en tu HTML y
+      ya está. Los <code>@keyframes</code> y las reglas están definidas en <code>animaciones.css</code>.
+    </p>
+
+    <ul>
+      <li><strong>1) Elige el efecto</strong> y copia la clase del ejemplo:
+        <code>.animate</code> (cambio de color), <code>.move</code> (desplazamiento),
+        <code>.move2</code> (mover + desvanecer), <code>.grow</code> (al pasar el ratón),
+        <code>.ease-in</code>/<code>.ease-out</code>/<code>.linear</code> (curva de velocidad).
+      </li>
+      <li><strong>2) Añade esa clase</strong> al elemento que quieras animar.</li>
+      <li><strong>3) Combina clases</strong> para crear efectos: por ejemplo
+        <code>class="circle animate move ease-in"</code> hace que un círculo
+        <em>se mueva</em> y <em>cambie de color</em> con aceleración suave.
+      </li>
+      <li><strong>4) Hover</strong>: para el texto que crece usa
+        <code>class="grow"</code> en un <code>&lt;p&gt;</code> y pasa el ratón por encima.</li>
+    </ul>
+
+    <p><strong>Ejemplo rápido:</strong></p>
+    <pre><code>&lt;!-- Un bloque que cambia de color y se mueve de lado a lado --&gt;
+&lt;div class="block animate move ease-in"&gt;&lt;/div&gt;</code></pre>
+
+    <p style="margin-top:.4rem">
+      💡 <em>Consejo:</em> si quieres ajustar duración, retraso o repeticiones, puedes
+      sobreescribir la animación en línea o en tu CSS:
+    </p>
+    <pre><code>&lt;div class="block animate" style="animation-duration: 3s; animation-iteration-count: 3;"&gt;&lt;/div&gt;</code></pre>
+    <p>En cuanto empiezas a escribirlo visual te ayuda !Es fácil!  </p>
+    <p style="margin-top:.4rem">
+      
+
+    <p><strong>¡Anímate a probar!</strong> Cambia el orden de las clases, juega con
+      <code>animation-duration</code> (más rápido/lento) y con las curvas
+      <code>ease-in</code>, <code>ease-out</code> o <code>linear</code>. Experimentar es la mejor forma de aprender. 🚀
+    </p>
+  </div>
+</section>
+
+ 

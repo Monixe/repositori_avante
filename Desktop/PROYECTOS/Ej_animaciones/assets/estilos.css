@@ -1,0 +1,534 @@
+/* ============================================================
+   ANIMACIONES CSS · INMA
+   Hoja de estilo didáctica para acompañar a index.html
+   Paleta inspirada en HTML (#E44D26 / #F16529)
+   ============================================================ */
+
+/* -----------------------------
+   0) VARIABLES + RESET BÁSICO
+   ----------------------------- */
+:root{
+  --primary: #E44D26;   /* Naranja principal (HTML) */
+  --primary-2: #F16529; /* Naranja claro */
+  --ink: #1f1f1f;       /* Texto principal (oscuro) */
+  --ink-soft:#3a3a3a;   /* Texto secundario */
+  --bg: #ffffff;        /* Fondo base */
+  --muted:#f7f7f7;      /* Fondo suave para secciones */
+  --card:#ffffff;       /* Fondo tarjetas */
+  --border:#e9e9e9;     /* Borde sutil */
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Pequeñas utilidades */
+.helper{ color:#f3f2f2; font-size:1rem; margin:.5rem 0 1rem; }
+.section{ padding: 32px 16px; max-width: 1100px; margin: 0 auto; }
+.site-header, .site-footer{ padding: 16px; background:#1509bd; color:#13b5e2; text-align:center; }
+.site-header h1{ margin:0; }
+.site-footer small{ opacity:.8; }
+
+.grid-3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+@media (max-width: 880px){ .grid-3{ grid-template-columns: 1fr; } }
+
+/* -----------------------------
+   1) FORMAS BASE PARA DEMOS
+   ----------------------------- */
+/* Bloque y círculo "neutros" sobre los que aplicamos clases de animación */
+.block{
+  width: 120px; height: 120px;
+  background: gold;
+  border-radius: 12px;
+  position: relative; /* Necesario para animar 'left' sin mover el flujo exterior */
+}
+.circle{
+  width: 80px; height: 80px;
+  background: var(--primary);
+  border-radius: 999px;
+  position: relative;
+}
+
+/* ============================================================
+   A) CAMBIO DE COLOR CÍCLICO (.animate)
+   - Clave: @keyframes + animation-*
+   - iteration-count: infinite → no se detiene
+   - direction: alternate → va 0%→100% y vuelve 100%→0%
+   ============================================================ */
+@keyframes color-change{
+  0%   { background: gold; }
+  50%  { background: red; }
+  100% { background: gold; }
+}
+.animate{
+  /* Propiedad larga (equivalente a escribir todas por separado):
+     animation: <name> <duration> <timing-function> <delay> <iteration-count> <direction> <fill-mode> <play-state>;
+  */
+  animation-name: color-change;          /* ¿Qué animación? */
+  animation-duration: 1.6s;              /* ¿Cuánto tarda un ciclo? */
+  animation-timing-function: ease-in-out;/* Acelera y frena suavemente */
+  animation-iteration-count: infinite;   /* Repite para siempre */
+  animation-direction: alternate;        /* Ida y vuelta */
+  /* animation-delay: 0s;                // Podríamos retrasar el inicio */
+  /* animation-fill-mode: none;          // Mantiene estilos solo durante la animación */
+}
+
+/* ============================================================
+   B) TEXTO QUE CRECE AL HOVER (.grow:hover)
+   - fill-mode: forwards → conserva el estado final al terminar
+   ============================================================ */
+@keyframes bigger{
+  from{ font-size: 1rem; }
+  to  { font-size: 1.8rem; }
+}
+.grow{ font-size: 1rem; display:inline-block; }
+.grow:hover{
+  animation: bigger .7s ease forwards;
+  /* forwards = mantiene el font-size final después de la animación */
+}
+
+/* ============================================================
+   C) MOVIMIENTO HORIZONTAL IDA/VUELTA (.move)
+   - Usamos 'left' para desplazar el elemento dentro de su caja
+   ============================================================ */
+@keyframes move-x{
+  from{ left: 0; }
+  to  { left: 500px; }
+}
+.move{
+  animation: move-x 2s ease-in-out infinite alternate;
+}
+
+/* ============================================================
+   D) MOVIMIENTO + DESVANECIMIENTO (.move2)
+   - Combinamos desplazamiento y opacidad
+   ============================================================ */
+@keyframes move-fade{
+  0%   { left: 0;     opacity: 1; }
+  50%  { left: 250px; opacity: 0; }
+  100% { left: 500px; opacity: 1; }
+}
+.move2{
+  animation: move-fade 2.2s ease-in-out infinite alternate;
+}
+
+/* ============================================================
+   E) TIMING FUNCTIONS (ease-in/out/linear)
+   - Misma animación (.move), distinta curva de velocidad
+   - Sugerencia: probar también cubic-bezier() para personalizar
+   ============================================================ */
+.ease-in   { animation-timing-function: ease-in-out; }
+.ease-out  { animation-timing-function: ease-out; }
+.linear    { animation-timing-function: linear; }
+
+/* ============================================================
+   F) SOMBRAS (box-shadow) – Visualizar offsets y blur
+   ============================================================ */
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:12px;
+  min-height: 90px;
+  display:grid; place-items:center;
+  text-align:center;
+}
+.shadow-a{ box-shadow: -10px 10px 0px #0d860f; } /* sin blur (borde “duro”) */
+.shadow-b{ box-shadow: 20px 20px 0px #391ac4;  } /* sin blur (borde “duro”) */
+.shadow-c{ box-shadow: 20px 20px 2px #92e42f; } /* blur 2px (borde suave) */
+
+/* ============================================================
+   G) TEXTO METÁLICO (shimmer)
+   - Truco: background-clip:text + animación del background
+   ============================================================ */
+.metal-text-section{
+  padding: 48px 16px;
+  text-align:center;
+  background: var(--muted);
+}
+.metal-text-container{ display:grid; place-items:center; }
+.metal-text{
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: .06em;
+
+  /* Fondo con “vetas” metálicas que se desplazará */
+  background: linear-gradient(120deg, #bbb 0%, #eee 20%, #999 40%, #bbb 60%, #fefefe 80%, #aaa 100%);
+  background-size: 200% auto;
+
+  /* Hace que el fondo “pinte” el texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: shine 3.2s linear infinite;
+}
+@keyframes shine{ to{ background-position: 200% center; } }
+
+/* ============================================================
+   H) VÍDEO DE FONDO + BURBUJAS
+   - Vídeo fijado detrás del contenido
+   - Burbujas suben (rise) y se balancean (sway)
+   ============================================================ */
+#bg-video{
+  position: fixed; inset: 0;
+  width:100%; height:100%;
+  object-fit: cover;
+  z-index: -2;         /* Detrás de todo */
+  opacity:.25;         /* Suave para no distraer */
+}
+.hero{
+  position: relative;
+  min-height: 40vh;
+  display:grid; place-items:center;
+}
+.gradient-text{
+  font-size: clamp(1.8rem, 6vw, 4rem);
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-weight: 900;
+}
+
+/* Capa de burbujas */
+.bubbles{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.bubble{
+  position:absolute;
+  bottom:-10vmin;                  /* Empiezan fuera de pantalla */
+  width:var(--size); height:var(--size);
+  border-radius:50%;
+
+  /* Apariencia “cristal” */
+  background: radial-gradient(circle at 30% 30%, #fff8, #fff2 40%, #fff0 60%), #ffffff22;
+  backdrop-filter: blur(2px);
+
+  /* Dos animaciones simultáneas:
+     - rise: sube hacia arriba
+     - sway: ligero vaivén horizontal
+  */
+  animation:
+    rise var(--dur) linear infinite both,
+    sway var(--sway) ease-in-out infinite alternate;
+
+  animation-delay: var(--delay, 0s); /* Desfase para que no vayan todas a la vez */
+}
+@keyframes rise{ to{ transform: translateY(-110vh); opacity:.8; } }
+@keyframes sway{ from{ transform: translateX(-8px); } to{ transform: translateX(8px); } }
+
+/* ============================================================
+   I) PROYECTOS CON “REVEAL” EN CARGA
+   - Tres variantes: from-left / from-right / from-bottom
+   - Cada tarjeta lee su imagen desde la custom prop --bg
+   ============================================================ */
+.projects{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:12px; padding: 24px 16px;
+}
+@media (max-width: 880px){ .projects{ grid-template-columns:1fr; } }
+
+.project{
+  aspect-ratio: 16/10;
+  border-radius:16px;
+  position:relative; overflow:hidden;
+  background: var(--muted) center/cover;
+  background-image: var(--bg);          /* Imagen pasada inline en el HTML */
+  transform: translateY(0);
+  opacity:0;                            /* Aparecen animadas */
+  animation: reveal .8s ease both;
+  animation-delay: var(--delay, 0ms);   /* Retraso individual */
+}
+.project .label{
+  position:absolute; left:12px; bottom:12px;
+  background:#000a; color:#fff;
+  padding:6px 10px; border-radius:8px; font-weight:600;
+}
+
+/* Keyframes de aparición genéricos + direccionales */
+@keyframes reveal{ from{ opacity:0; } to{ opacity:1; } }
+.from-left  { animation-name: reveal-left; }
+.from-right { animation-name: reveal-right; }
+.from-bottom{ animation-name: reveal-bottom; }
+
+@keyframes reveal-left  { from{ opacity:0; transform: translateX(-30px); } to{ opacity:1; transform:none; } }
+@keyframes reveal-right { from{ opacity:0; transform: translateX( 30px); } to{ opacity:1; transform:none; } }
+@keyframes reveal-bottom{ from{ opacity:0; transform: translateY( 30px); } to{ opacity:1; transform:none; } }
+
+/* ============================================================
+   J) OVERLAY “¿QUIÉN SOY?” + LATIDO
+   - Capa superior opaca que se desvanece al hover
+   - Un SVG con “latido” usando scale
+   ============================================================ */
+.container{ max-width:1100px; margin:0 auto; padding: 24px 16px; }
+.about-reveal{ position: relative; min-height: 260px; }
+.about-content{ position: relative; z-index:1; }
+
+/* Capa que oculta el contenido hasta que pasamos el ratón */
+.about-overlay{
+  position:absolute; inset:0;
+  background:#0b0b0f; color:#fff;
+  display:grid; place-items:center;
+  z-index:2;
+  transition: opacity .5s ease;
+}
+.about-reveal:hover .about-overlay{
+  opacity:0; pointer-events:none; /* se “descubre” el contenido */
+}
+.overlay-inner{ font-size: clamp(1.2rem, 5vw, 2rem); letter-spacing:.04em; }
+
+/* Dropcap “S” con pequeña sacudida al hover */
+.intro-line{ font-size: clamp(1rem, 2.2vw, 1.3rem); display:flex; align-items:flex-start; gap:.5rem; }
+.dropcap{
+  font-size: 2.8rem; font-weight:900; line-height: .9; display:inline-block; color:var(--primary);
+}
+.resto{ flex:1; }
+
+@keyframes shake{
+  0%,100%{ transform: translate(0,0) rotate(0); }
+  25%{ transform: translate(1px,-1px) rotate(-2deg); }
+  50%{ transform: translate(-1px,1px) rotate(2deg); }
+  75%{ transform: translate(1px,1px) rotate(-1deg); }
+}
+.dropcap:hover{ animation: shake .5s ease; }
+
+/* Latido del corazón */
+.heartbeat{
+  width: 90px; height:auto;
+  filter: drop-shadow(0 6px 14px #0004);
+  transform-origin: center;
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+@keyframes heartbeat{
+  0%{ transform: scale(1); }
+  25%{ transform: scale(1.08); }
+  40%{ transform: scale(1); }
+  60%{ transform: scale(1.12); }
+  100%{ transform: scale(1); }
+}
+
+/* ============================================================
+   K) FLIP CARDS (3D)
+   - perspective en el contenedor padre
+   - rotateY(180deg) al pasar el ratón
+   - backface-visibility para ocultar la cara posterior
+   ============================================================ */
+
+.card-container{
+  display:flex; flex-wrap:wrap; gap:86px;
+  justify-content:center; align-items:center;
+  perspective: 1000px; /* Profundidad 3D del contenedor padre */
+  
+}
+.flip-card{
+  width: clamp(220px, 30vw, 320px);
+  aspect-ratio: 4/3;
+  border:1px solid var(--border);
+  border-radius:16px; overflow:hidden;
+  background:#0c925c;
+}
+.flip-card-inner{
+  position:relative; width:100%; height:100%;
+  transform-style: preserve-3d;             /* Mantener 3D de sus hijos */
+  transition: transform .7s ease;
+}
+.flip-card:hover .flip-card-inner{ transform: rotateY(180deg); } /* ¡Giro! */
+
+.flip-card .front,
+.flip-card .back{
+  position:absolute; inset:0;
+  padding:26px; display:grid; place-items:center;
+  backface-visibility: hidden;              /* Oculta el reverso al girar */
+}
+.flip-card .front{ background: linear-gradient(120deg, #ce16c2, #fef3c7); }
+.flip-card .back { background:#3807ab; color:#fff; transform: rotateY(180deg); }
+
+/* ============================================================
+   A) SCROLL-DRIVEN REVEAL (View Timelines)
+   - Cada .reveal-item define su propia view-timeline (eje block)
+   - La animación se sincroniza con la entrada/cobertura en el viewport
+   * Soporte actual: Chromium 115+, Safari 17+ (Firefox en progreso)
+   ============================================================ */
+
+/* Grid de tarjetas */
+.reveal-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+}
+@media (max-width: 880px){ .reveal-grid{ grid-template-columns: 1fr; } }
+
+.reveal-item{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 120px;
+  opacity: 0;                  /* estado inicial (se verá al entrar) */
+  transform: translateY(24px); /* pequeño desplazamiento */
+
+  /* 1) Nombramos su “view timeline” (ligada a este elemento) */
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+
+  /* 2) Ligamos la animación a esa timeline */
+  animation-name: reveal-fade-up;
+  animation-timeline: --reveal;
+
+  /* 3) Rango: desde que empieza a entrar (entry 0%) hasta cubrir 50% */
+  animation-range: entry 0% cover 50%;
+
+  /* La animación se ejecuta una vez y persiste su último frame */
+  animation-fill-mode: both;
+}
+
+/* Keyframes de aparición */
+@keyframes reveal-fade-up{
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   B) BARRA DE PROGRESO LIGADA AL SCROLL (Scroll Timelines)
+   - Creamos una timeline basada en el scroll del contenedor
+   - Animamos el ancho desde 0% a 100% según scroll
+   ============================================================ */
+
+.progress-wrap{
+  position: relative;
+  background: #f2f2f2;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+/* 1) El contenedor define una timeline de scroll vertical */
+.progress-wrap{
+  scroll-timeline-name: --progreso;
+  scroll-timeline-axis: block; /* eje vertical */
+}
+
+/* 2) La barra se anima en esa timeline */
+.progress-bar{
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  animation: fill-width linear both;
+  animation-timeline: --progreso;
+  /* 3) Rango: de 0% a 100% del scroll disponible dentro del wrap */
+  animation-range: 0% 100%;
+}
+
+/* Keyframes de llenado (de 0 a 100% de ancho) */
+@keyframes fill-width{
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* Contenido alto para que exista scroll dentro de la sección */
+.tall-copy{ margin-top: 16px; }
+
+/* ============================================================
+   C) MOTION PATH (offset-path)
+   - El elemento se mueve a lo largo de un path SVG
+   - offset-rotate controla si “apunta” según la tangente
+   ============================================================ */
+
+.path-stage{
+  position: relative;
+  height: 240px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 20% 75%, #fdf2f2 0 30px, transparent 31px),
+    radial-gradient(circle at 80% 25%, #eef2ff 0 28px, transparent 29px);
+  overflow: hidden;
+}
+
+/* La “cometa” (bolita con halo) */
+.cometa{
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px #fff, 0 0 18px #fffb, 0 0 30px #fffa;
+
+  /* Trayectoria: curva SVG simplificada */
+  offset-path: path("M 20 200 C 120 50, 220 50, 320 200 S 520 350, 620 120");
+  offset-rotate: auto;           /* opcional: girar según la tangente */
+  animation: follow 6s linear infinite;
+}
+
+/* Avance a lo largo del path (0% → 100% de la distancia) */
+@keyframes follow{
+  from { offset-distance: 0%;   }
+  to   { offset-distance: 100%; }
+}
+
+/* ============================================================
+   D) SPRITE CON steps()
+   - Un sprite horizontal de N frames se anima desplazando el fondo
+   - steps(N) hace N “saltos” (sin interpolación entre frames)
+   ============================================================ */
+
+.sprite-demo{ display: grid; place-items: center; min-height: 160px; }
+
+.sprite{
+  width: 96px;                 /* ancho visible de un frame */
+  height: 96px;                /* alto visible de un frame */
+  background-repeat: no-repeat;
+  image-rendering: pixelated;  /* útil para sprites “pixel-art” */
+
+  /* ⚠️ Sustituye la URL por tu sprite.
+     Debe ser una tira horizontal con, por ejemplo, 8 frames. */
+  background-image: url("sprite-horizontal.png");
+
+  /* Si hay 8 frames, el ancho total es 8×96 = 768px */
+  /* Para ocultar el resto, NO uses cover; deja el tamaño natural o ajusta background-size si hace falta */
+
+  /* Animación: mueve el fondo de 0% a 100% en 8 pasos exactos */
+  animation: run-frames 1s steps(8) infinite;
+}
+
+@keyframes run-frames{
+  from { background-position:   0 0; }
+  to   { background-position: -768px 0; } /* -ancho total del sprite */
+}
+/* ============================================================
+   E) @property para animar variables CSS
+   - Registramos --h (tono HSL) para que el motor pueda interpolar
+   - Animamos un gradiente que rota de 0 a 360 grados
+   ============================================================ */
+
+/* Registro de la propiedad: nombre, sintaxis y valor inicial */
+@property --h{
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.chip-prop{
+  --h: 0; /* valor inicial (0 = rojo) */
+
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(90deg, hsl(var(--h) 90% 50%), hsl(calc(var(--h) + 60) 90% 50%));
+
+  /* Animamos la variable, no el color directamente */
+  animation: hue-spin 4s linear infinite;
+}
+
+@keyframes hue-spin{
+  to { --h: 360; }
+}
+/* ============================================================
+   F) A11Y: Respeta usuarios que prefieren menos movimiento
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; }
+}
