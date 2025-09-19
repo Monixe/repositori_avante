@@ -1,0 +1,78 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Grid global + Flex en tarjetas</title>
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="site-header">
+        <h1>Mi Página</h1>
+        <nav>
+          <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+      <aside class="banner">Banner lateral</aside>
+      <main>
+        <section class="articulos">
+          <!-- 9 tarjetas (3x3) -->
+          <article class="card card--meta">
+            <p class="card-title">Tarjeta 1 — Texto breve</p>
+            <time datetime="2025-09-17" class="card-date">17/09/2025</time>
+          </article>
+          <article class="card card--meta">
+            <p class="card-title">Tarjeta 2 — Texto breve</p>
+            <time datetime="2025-09-18" class="card-date">18/09/2025</time>
+          </article>
+          <article class="card card--meta">
+            <p class="card-title">Tarjeta 3 — Texto breve</p>
+            <time datetime="2025-09-19" class="card-date">19/09/2025</time>
+          </article>
+          <article class="card card--media">
+            <img src="https://placehold.co/120x120" alt="Imagen ejemplo" />
+            <p class="card-caption">Tarjeta 4 — Texto principal</p>
+          </article>
+          <article class="card card--media">
+            <img src="https://placehold.co/120x120" alt="Imagen ejemplo" />
+            <p class="card-caption">Tarjeta 5 — Texto principal</p>
+          </article>
+          <article class="card card--media">
+            <img src="https://placehold.co/120x120" alt="Imagen ejemplo" />
+            <p class="card-caption">Tarjeta 6 — Texto principal</p>
+          </article>
+          <article class="card card--row">
+            <img class="avatar" src="https://placehold.co/80x80" alt="Avatar" />
+            <div class="row-text">
+              <p class="card-title">Tarjeta 7 — Con acciones</p>
+              <small class="muted">Texto corto de apoyo</small>
+            </div>
+            <button class="btn">Ver</button>
+          </article>
+          <article class="card card--row card--row-center">
+            <img class="avatar" src="https://placehold.co/80x80" alt="Avatar" />
+            <div class="row-text">
+              <p class="card-title">Tarjeta 8 — Centrada</p>
+              <small class="muted">Alineación diferente</small>
+            </div>
+            <button class="btn">Abrir</button>
+          </article>
+          <article class="card card--row card--row-space">
+            <img class="avatar" src="https://placehold.co/48x48" alt="Avatar" />
+            <div class="row-text">
+              <p class="card-title">Tarjeta 9 — Espaciada</p>
+              <small class="muted">justify-content: space-between</small>
+            </div>
+            <button class="btn">Ir</button>
+          </article>
+        </section>
+      </main>
+      <aside class="aside">Aside — Enlaces o info extra</aside>
+      <footer class="site-footer">© 2025 — Ejercicio Grid & Flex</footer>
+    </div>
+  </body>
+</html>
