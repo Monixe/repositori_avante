@@ -1,0 +1,13 @@
+*{margin:auto;
+}
+body{
+     background-color: rgb(207, 134, 71);
+}
+.card{
+    padding: 20px;
+   
+}
+legend{
+    color:rgb(171, 15, 67);
+ 
+}
