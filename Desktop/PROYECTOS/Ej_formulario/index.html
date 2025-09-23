@@ -26,7 +26,7 @@
                     <input id="surname" type="text" placeholder="Ingrese sus apellidos" required>
                     <br>
                     <label for="email">Email</label><br>
-                    <input id="email" type="email" required  placeholder="Ingrese su email" required>
+                    <input id="email" type="email" required placeholder="Ingrese su email" required>
                     <br>
                     <label for="password">Contraseña</label>
                     <input id="password" type="password" placeholder="Ingrese su contraseña" required>
@@ -55,16 +55,16 @@
                 <br><br>
 
                 <label for="hoteles">Hoteles Disponibles</label>
-                <select name="hoteles" id="hoteles" class="form-select" aria-label="Default select example">
-                <option disabled selected> Seleccione un hotel...</option>
-                <option value="hotel-1">Abasto Hotel</option>
+                <select name="hoteles" id="hoteles" onfocus="this.size=3" class="form-select" aria-label="Default select example"> -->
+                    <option disabled selected> Seleccione un hotel...</option>
+                    <option value="hotel-1">Abasto Hotel</option>
                     <option value="hotel-2">Ritz</option>
                     <option value="hotel-3">Islas Cayman Hotel</option>
                 </select>
                 <br><br>
 
                 <label for="color">Color Favorito</label>
-                <input id="color" type="color">
+                <input id="color" type="color" value="#cb0f4d">
 
                 <br><br>
                 <label for="range">Temperatura Asiento</label>
@@ -75,11 +75,12 @@
 
             </fieldset>
 
-           
-                <input class="form-control" type="submit">
-          
-                <input class="form-control" type="reset">
-            
+
+            <input class="form-control" type="submit">
+
+            <input class="form-control" type="reset">
+            <br><br>
+         
 
         </form>
     </div>

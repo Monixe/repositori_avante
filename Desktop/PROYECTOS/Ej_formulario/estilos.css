@@ -8,6 +8,16 @@ body{
    
 }
 legend{
-    color:rgb(171, 15, 67);
+    color:#cb0f4d;
  
+}
+
+
+option:hover {
+  background-color: rgb(255, 63, 121)!important;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
 }

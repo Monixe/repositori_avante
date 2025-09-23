@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header header"
+        "main main main aside"
+        "footer footer footer footer";
+    grid-template-columns:
+        3fr 1fr;
+    grid-template-rows:
+        auto 2fr auto;
+}
+
+header {
+    grid-area: header;
+    background: linear-gradient(63deg, rgba(255, 200, 221, 1) 15%, rgba(205, 180, 219, 1) 52%, rgba(189, 224, 254, 1) 81%);
+}
+
+header img {
+    margin: 0 auto;
+
+}
+
+@font-face {
+    font-family: 'fuente';
+    /* Nombre que le das a la fuente */
+    src: url('/Ej_Repaso_html-css/fuentes/fuente.ttf') format('truetype');
+    /* Ruta al archivo de la fuente */
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'fuente2';
+    /* Nombre que le das a la fuente */
+    src: url('/Ej_Repaso_html-css/fuentes/fuente2.ttf') format('truetype');
+    /* Ruta al archivo de la fuente */
+    font-style: normal;
+    font-weight: normal;
+}
+
+main {
+    grid-area: main;
+    align-items: center;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
+
+header img {
+
+    background-size: contain;
+}
+
+footer {
+    background: linear-gradient(63deg, rgba(255, 200, 221, 1) 15%, rgba(205, 180, 219, 1) 52%, rgba(189, 224, 254, 1) 81%);
+    text-align: center;
+}
+
+
+
+aside {
+    background-color: blue;
+}
+
+aside img {
+    height: 150px;
+    width: 300px;
+}
+
+footer img {
+    height: 50px;
+    width: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: 'fuente';
+    font-size: 30px;
+}
+
+section {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    margin:10%;
+
+}
+
+section article {
+
+    font-family: 'fuente2';
+    font-size: 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    background-color: #ffffff;
+    /* Fondo blanco */
+    overflow: hidden;
+    /* Asegura bordes redondeados en la imagen */
+    margin: 1em;
+    /* Espacio entre tarjetas */
+    text-align: center;
+    box-sizing: border-box;
+    align-content: center;
+
+}
+section article p{
+    text-align: center;
+}
