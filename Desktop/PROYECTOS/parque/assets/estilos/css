@@ -43,6 +43,7 @@ nav {
 
 nav li {
   display: inline;
+  float:left;
   margin-top: 10px;
   background: #e3e9ee;
   padding: 5px;

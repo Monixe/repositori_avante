@@ -12,56 +12,127 @@ body {
         "header header header header"
         "main main main aside"
         "footer footer footer footer";
-    grid-template-columns:
-        3fr 1fr;
-    grid-template-rows:
-        auto 2fr auto;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto 2fr auto;
 }
 
 header {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 17px -6px #f0c3ee;
+    background-repeat: repeat-x;
     grid-area: header;
-    background: linear-gradient(63deg, rgba(255, 200, 221, 1) 15%, rgba(205, 180, 219, 1) 52%, rgba(189, 224, 254, 1) 81%);
+    height: 100%;
+    justify-content: space-between;
+}
+#marca-cabecera{
+    display:flex;
+    margin:auto;
 }
 
 header img {
-    margin: 0 auto;
 
+    width: 50px;
+    height: 50px;
 }
 
-@font-face {
-    font-family: 'fuente';
-    /* Nombre que le das a la fuente */
-    src: url('/Ej_Repaso_html-css/fuentes/fuente.ttf') format('truetype');
-    /* Ruta al archivo de la fuente */
-    font-style: normal;
-    font-weight: normal;
-}
+header h1 {
+    text-align: center;
+    font-family: 'fuente4';
+    font-size: 70px;
+    color: #f0c3ee;
+    text-shadow: 1px 1px 2px black;
+    padding: 15px;
 
-@font-face {
-    font-family: 'fuente2';
-    /* Nombre que le das a la fuente */
-    src: url('/Ej_Repaso_html-css/fuentes/fuente2.ttf') format('truetype');
-    /* Ruta al archivo de la fuente */
-    font-style: normal;
-    font-weight: normal;
 }
 
 main {
     grid-area: main;
     align-items: center;
+    background-image: url("/Ej_Repaso_html-css/assets/imagenes/elementos-pagina/fondo-opaco.png");
+
+}
+
+main img {
+    opacity: 0.6;
 }
 
 aside {
     grid-area: aside;
 }
 
-footer {
-    grid-area: footer;
+aside {
+    background-color: rgb(163, 163, 215);
+    display: flex;
+    flex-direction: column;
+
 }
 
-header img {
+aside img {
+    height: 200px;
+    width: 300px;
+}
 
-    background-size: contain;
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: 'fuente';
+    font-size: 30px;
+    color: black;
+    padding: 10px;
+}
+
+#principal {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    margin: 10%;
+
+}
+
+#principal article {
+
+    font-family: 'fuente2';
+    font-size: 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    overflow: hidden;
+    margin: 1em;
+    text-align: center;
+    box-sizing: border-box;
+    align-content: center;
+
+}
+
+#principal article p {
+    text-align: center;
+}
+
+footer img {
+    height: 45px;
+    width: 50px;
+}
+
+footer {
+    grid-area: footer;
+    bottom: 0;
 }
 
 footer {
@@ -70,61 +141,30 @@ footer {
 }
 
 
-
-aside {
-    background-color: blue;
-}
-
-aside img {
-    height: 150px;
-    width: 300px;
-}
-
-footer img {
-    height: 50px;
-    width: 50px;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav a {
-    text-decoration: none;
+@font-face {
     font-family: 'fuente';
-    font-size: 30px;
+    src: url('/Ej_Repaso_html-css/fuentes/fuente.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
 
-section {
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    flex-wrap: wrap;
-    margin:10%;
-
-}
-
-section article {
-
+@font-face {
     font-family: 'fuente2';
-    font-size: 30px;
-    width: 200px;
-    height: 200px;
-    border-radius: 8px;
-    /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
-    background-color: #ffffff;
-    /* Fondo blanco */
-    overflow: hidden;
-    /* Asegura bordes redondeados en la imagen */
-    margin: 1em;
-    /* Espacio entre tarjetas */
-    text-align: center;
-    box-sizing: border-box;
-    align-content: center;
-
+    src: url('/Ej_Repaso_html-css/fuentes/fuente2.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
-section article p{
-    text-align: center;
+
+@font-face {
+    font-family: 'fuente3';
+    src: url('/Ej_Repaso_html-css/fuentes/fuente3.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'fuente4';
+    src: url('/Ej_Repaso_html-css/fuentes/fuente4.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
