@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="msg"></div>
+    <script>
+        let nombre = "Ana";
+        console.log("hola mundo")
+        const ahora = new Date().toLocaleTimeString("es-ES");
+        document.getElementById("msg").textContent = "Hola! " + nombre + ", son las " + ahora;
+
+    </script>
+    <button id="cambiarFondo">Cambiar fondo</button>
+    <div id="estado"></div>
+    <script>
+        const btn = document.getElementById("cambiarFondo");
+        const estado = document.getElementById("estado");
+        let oscuro = false;
+
+        btn.addEventListener("click", () => {
+            oscuro = !oscuro;
+            document.body.dataset.theme = oscuro ? "dark" : "light"; // tu CSS ya soporta tema claro/oscuro
+            estado.textContent = oscuro ? "Modo oscuro activo" : "Modo claro activo";
+        });
+    </script>
+</body>
+
+</html>

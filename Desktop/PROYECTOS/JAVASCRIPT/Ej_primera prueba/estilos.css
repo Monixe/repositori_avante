@@ -1,0 +1,11 @@
+#msg {
+    color: blueviolet;
+    font-size: 50px;
+    text-shadow: 2px 3px 2px black;
+    font-family: sans-serif;
+}
+
+#estado {
+    background-color: dark;
+    background-color: light;
+}
