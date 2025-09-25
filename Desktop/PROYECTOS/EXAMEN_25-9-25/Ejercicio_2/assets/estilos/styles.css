@@ -1,0 +1,95 @@
+/* MÓNICA JIMÉNEZ GAMBÍN */
+* {
+    /* Quitar los margin, padding por defecto de toda la página  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(249, 186, 224);
+    /* color de fondo de la página */
+}
+
+/* ---------------------------------HEADER----------------------------------------------- */
+header {
+    padding: 20px;
+    background-color: rgb(117, 69, 107);
+    /* color del fondo del encabezado */
+    box-shadow: 0px 0px 17px 3px #111011;
+    /* sombra del encabezado para que resalte más */
+}
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(209, 157, 12);
+    text-shadow: 3px 2px 2px rgb(26, 34, 2);
+    /* sombra del título del encabezado para que resalte */
+}
+
+h1+p {
+    /* para editar el párrafo específico que hay en el encabezado */
+    color: aliceblue;
+    font-size: 1rem;
+    padding: 5px;
+    font-style: italic;
+}
+
+/* ---------------------------------MAIN-------------------------------------------------------- */
+main {
+    margin: 20px;
+    padding: 20px;
+}
+
+p {
+    /* fuente y color para todos los párrafos de la página  */
+    font-family: monospace;
+    color: rgb(106, 1, 43)
+}
+
+h2 {
+    /* fuente y color para todos los títulos h2 de la página */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(53, 80, 126)
+}
+
+.destacado {
+    /*  estilos para un párrafo concreto distinguido por una clase*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blueviolet;
+}
+
+#section-fondo {
+    /*  estilos para una sección concreta distinguida por un selector id */
+    border-radius: 50%;
+    /* dar forma de óvalo a la sección */
+    background-color: rgb(250, 249, 186);
+    height: 50px;
+    width: fit-content;
+}
+
+#section-fondo:hover {
+    /* efecto cambio de color al pasar el cursor por el óvalo */
+    background-color: rgb(254, 58, 146);
+}
+
+/* ------------------------FOOTER-------------------------------------------------- */
+footer {
+    /* estilos para el pie de página */
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    /* Para que quede al final de la página siempre */
+    background-color: rgb(117, 69, 107);
+    width: 100%;
+    height: 50px;
+}
+
+footer small {
+    /* estilos para el small del footer */
+
+    text-align: center;
+    color: aliceblue;
+    padding: 15px;
+}
