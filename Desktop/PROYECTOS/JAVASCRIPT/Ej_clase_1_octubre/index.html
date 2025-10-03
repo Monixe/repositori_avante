@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primera web con js</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mi nota</h1>
+        <div id="parrafo">
+            <p></p>
+        </div>
+
+    </div>
+
+    <script>
+        var contenedor = document.getElementById("parrafo");
+        var imagen = document.createElement("img");
+        imagen.src = "https://images.squarespace-cdn.com/content/v1/5a5986b2cf81e095e172ce87/1632788535058-W27SZTU2ZFG0Y37PUGU2/flyingdawnmarie-yellowstone-fountain-paint-pots-trail-08.jpg?format=1000w";
+        contenedor.appendChild(imagen);
+    </script>
+</body>
+
+</html>
