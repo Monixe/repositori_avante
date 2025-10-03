@@ -1,0 +1,19 @@
+{
+  "name": "repositori_avante",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Monixe/repositori_avante.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Monixe/repositori_avante/issues"
+  },
+  "homepage": "https://github.com/Monixe/repositori_avante#readme"
+}
