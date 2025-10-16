@@ -1,170 +1,262 @@
+/* RESET */
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 body {
-    margin: 0;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-areas:
-        "header header header header"
-        "main main main aside"
-        "footer footer footer footer";
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto 2fr auto;
-}
-
-header {
     display: flex;
-    flex-wrap: wrap;
-    box-shadow: 0px 0px 17px -6px #f0c3ee;
-    background-repeat: repeat-x;
-    grid-area: header;
-    height: 100%;
-    justify-content: space-between;
-}
-#marca-cabecera{
-    display:flex;
-    margin:auto;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'fuente2', sans-serif;
 }
 
-header img {
+/* CABECERA */
+header {
+    width: 100%;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 
+/* NAV */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li {
+    position: relative;
+    padding: 0.5rem 0;
+    /* solo vertical */
+    cursor: pointer;
+}
+
+nav ul li span {
+    transition: color 0.3s;
+}
+
+nav ul li span:hover {
+    color: #a020f0;
+    /* hover solo sobre el texto */
+}
+
+/* contenedor de iconos a la derecha */
+#header-icons {
+    margin-left: auto;
+    /* empuja a la derecha */
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icono-header {
+    position: relative;
+    top: 2px;
+    /* mueve los iconos hacia abajo */
+    font-size: 1.8rem;
+    color: #cb88f5
+}
+
+/* iconos interactivos */
+.icono-header {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.icono-header:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: brightness(1.3);
+}
+
+
+/* SUBMENUS */
+.submenu {
+    display: block;
+    /* siempre block para animar */
+    position: fixed;
+    /* fijo a la pantalla */
+    top: 0;
+    /* ajustaremos con JS para debajo del header */
+    left: -100%;
+    /* fuera de la pantalla al inicio */
+    background: rgb(255, 255, 255);
+    list-style: none;
+    padding: 1rem;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    /* animación de barrido */
+}
+
+
+/* H1 + imagen */
+#marca-cabecera {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 1rem;
+}
+
+#marca-cabecera h1 {
+    font-size: 3rem;
+    color: #f0c3ee;
+    text-shadow: 1px 1px 3px black;
+}
+
+#marca-cabecera img {
     width: 50px;
     height: 50px;
 }
 
-header h1 {
-    text-align: center;
-    font-family: 'fuente4';
-    font-size: 70px;
-    color: #f0c3ee;
-    text-shadow: 1px 1px 2px black;
-    padding: 15px;
-
+/* GRID PRINCIPAL (ASIDE + MAIN + ASIDE) */
+.grid-main {
+    display: grid;
+    grid-template-columns: 0.7fr 3fr 0.7fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    flex: 1;
+    /* ocupa espacio entre header y footer */
 }
 
-main {
-    grid-area: main;
-    align-items: center;
-    background-image: url("/Ej_Repaso_html-css/assets/imagenes/elementos-pagina/fondo-opaco.png");
-
-}
-
-main img {
-    opacity: 0.6;
-}
-
-aside {
-    grid-area: aside;
-}
-
-aside {
-    background-color: rgb(163, 163, 215);
+/* ASIDES */
+#aside1 {
     display: flex;
     flex-direction: column;
-
+    background: #f0f0f0;
+    padding: 0;
+    margin: 0;
 }
 
-aside img {
-    height: 200px;
-    width: 300px;
-}
-
-nav {
+#aside2 {
     display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
 }
 
-nav ul {
-    list-style-type: none;
+#aside2 img {
+    width: 100%;
+    height: 30%;
+    /* antes era 50% */
+    object-fit: cover;
+    pointer-events: none;
+}
+
+
+/* MAIN / TARJETAS */
+main {
     display: flex;
-    align-items: flex-end;
-}
+    justify-content: center;
+    align-items: center;
+    background-image: url("../imagenes/elementos-pagina/fondo-opaco.png");
 
-nav li {
-    display: inline;
-}
-
-nav a {
-    text-decoration: none;
-    font-family: 'fuente';
-    font-size: 30px;
-    color: black;
-    padding: 10px;
 }
 
 #principal {
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    flex-wrap: wrap;
-    margin: 10%;
-
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1/1;
 }
 
 #principal article {
-
-    font-family: 'fuente2';
-    font-size: 30px;
-    width: 200px;
-    height: 200px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
-    overflow: hidden;
-    margin: 1em;
-    text-align: center;
-    box-sizing: border-box;
-    align-content: center;
-
+    background: white;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-#principal article p {
-    text-align: center;
+#principal article:hover {
+    transform: translateY(-6px) scale(1.03);
+    background: linear-gradient(135deg, #f7c6ff, #d8b4fe, #b3e5fc);
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 13px 25px rgba(0, 0, 0, 1.1);
 }
 
 footer img {
     height: 45px;
     width: 50px;
+    transition: 0.3s;
 }
 
-footer {
-    grid-area: footer;
-    bottom: 0;
+footer img:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: brightness(1.3);
 }
 
-footer {
-    background: linear-gradient(63deg, rgba(255, 200, 221, 1) 15%, rgba(205, 180, 219, 1) 52%, rgba(189, 224, 254, 1) 81%);
-    text-align: center;
+/* RESPONSIVE */
+@media(max-width:900px) {
+    .grid-main {
+        grid-template-columns: 1fr;
+    }
+
+    #principal {
+        max-width: 90%;
+    }
+
+    #aside2 {
+        height: auto;
+    }
 }
 
+@media(max-width:600px) {
+    #principal {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+    }
 
-@font-face {
-    font-family: 'fuente';
-    src: url('/Ej_Repaso_html-css/fuentes/fuente.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
+    #principal article {
+        width: 100%;
+        aspect-ratio: 1/1;
+        font-size: 1.2rem;
+    }
 
-@font-face {
-    font-family: 'fuente2';
-    src: url('/Ej_Repaso_html-css/fuentes/fuente2.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
+    header h1 {
+        font-size: 2.2rem;
+    }
 
-@font-face {
-    font-family: 'fuente3';
-    src: url('/Ej_Repaso_html-css/fuentes/fuente3.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'fuente4';
-    src: url('/Ej_Repaso_html-css/fuentes/fuente4.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }

@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+  position: fixed;      /* opcional: si quieres que se quede arriba al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;          /* ocupa todo el ancho */
+  background-color: #333;
+  color: white;
+  display: flex;        /* organiza el contenido en fila */
+  align-items: center;  /* centra verticalmente */
+  justify-content: space-between; /* separa los elementos */
+  padding: 10px 20px;   /* espacio interno arriba/abajo y a los lados */
+  box-sizing: border-box;
+  z-index: 1000;
+    /* para que quede por encima del contenido */
+}
+h1{
+    margin-left:20px;
+}

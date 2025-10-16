@@ -2,62 +2,86 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/estilos/estilo.css" />
-    <link rel="shortcut icon" href="assets/imagenes/elementos-pagina/icoiris.ico" />
+    <link rel="stylesheet" href="assets/estilos/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Q-sha</title>
-
 </head>
 
 <body>
-    <div class="grid-container">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="pages/niña.html">Niña</a></li>
-                    <li><a href="pages/niño.html">Niño</a></li>
-                    <li><a href="pages/unisex.html">Unisex</a></li>
-                </ul>
-            </nav>
-            <section id="marca-cabecera">
-                <h1>
-                    Q-sha
-                </h1>
-                <img src="assets/imagenes/elementos-pagina/corona.png" alt="imagen de cabecera">
-            </section>
-        </header>
-        <main>
 
-            <section id="principal">
-                <article class="articulo1">
-                    <p>Little Girl</p>
-                </article>
-                <article class="articulo2">
-                    <p>Little Boy</p>
-                </article>
-                <article class="articulo3">
-                    <p>Unisex</p>
-                </article>
-                <article class="articulo3">
-                    <p>Sales</p>
-                </article>
+    <!-- CABECERA ANCHO COMPLETO -->
+    <header>
+        <!-- NAV existente -->
+        <nav>
+            <ul>
+                <li><span>Niña</span>
+                    <ul class="submenu">
+                        <li>De 0-3 años</li>
+                        <li>De 3-6 años</li>
+                        <li>De 6-12 años</li>
+                    </ul>
+                </li>
+                <li><span>Niño</span>
+                    <ul class="submenu">
+                        <li>De 0-3 años</li>
+                        <li>De 3-6 años</li>
+                        <li>De 6-12 años</li>
+                    </ul>
+                </li>
+                <li><span>Unisex</span>
+                    <ul class="submenu">
+                        <li>De 0-3 años</li>
+                        <li>De 3-6 años</li>
+                        <li>De 6-12 años</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
-            </section>
+        <!-- H1 centrado con imagen de corona -->
+        <section id="marca-cabecera">
+            <h1>Q-sha</h1>
+            <img src="assets/imagenes/elementos-pagina/corona.png" alt="Imagen cabecera">
+        </section>
 
-        </main>
-        <aside>
-            <img src="assets/imagenes/publicidad/publicidad-amazon.png">
-            <img src="assets/imagenes/publicidad/niños.jpg">
+        <!-- Iconos a la derecha -->
+        <div id="header-icons">
+            <i class="fa-solid fa-heart icono-header"></i>
+            <i class="fa-solid fa-cart-shopping icono-header"></i>
+        </div>
+    </header>
+
+    <!-- GRID PRINCIPAL CON ASIDES Y MAIN -->
+    <div class="grid-main">
+        <aside id="aside1">
+            <p></p>
         </aside>
-        <footer>
-            <img src="assets/imagenes/redes-sociales/fb.png">
-            <img src="assets/imagenes/redes-sociales/insta.png">
-            <img src="assets/imagenes/redes-sociales/whtpp.png">
-        </footer>
 
+        <main>
+            <section id="principal">
+                <article>Little Girl</article>
+                <article>Little Boy</article>
+                <article>Unisex</article>
+                <article>Sales</article>
+            </section>
+        </main>
+
+        <aside id="aside2">
+            <img src="assets/imagenes/publicidad/publicidad-amazon.png" alt="Publicidad Amazon">
+            <img src="assets/imagenes/publicidad/niños.jpg" alt="Publicidad Niños">
+        </aside>
     </div>
+
+    <!-- FOOTER ANCHO COMPLETO -->
+    <footer>
+        <div class="icono-red"><img src="assets/imagenes/redes-sociales/fb.png" alt="Facebook"></div>
+        <div class="icono-red"><img src="assets/imagenes/redes-sociales/insta.png" alt="Instagram"></div>
+        <div class="icono-red"><img src="assets/imagenes/redes-sociales/whtpp.png" alt="Whatsapp"></div>
+    </footer>
+
+    <script src="./assets/javascripit.js"></script>
 </body>
 
 </html>
