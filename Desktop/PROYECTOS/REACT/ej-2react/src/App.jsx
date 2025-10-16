@@ -1,13 +1,17 @@
 
-import Cabecera from './Components/Cabecera'
+
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
 import './App.css'
+
 
 
 function App() {
   return (
-    <div>
-      <Cabecera />
-      {/* Resto de tu aplicación */}
+    <div id="appDiv">
+      <Routes>
+     <Route path="/" element={<Home />} />
+     </Routes>
     </div>
   );
 }
